@@ -32,3 +32,5 @@ explore: shopify_store_product_variants {}
 explore: product_tagging_shopifystoreproductvariants {}
 
 explore: product__agging_shopifystoreproductvariants_ca {}
+
+explore: analysis_clyde {}
