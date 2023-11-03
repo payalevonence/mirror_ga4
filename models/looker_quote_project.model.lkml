@@ -25,11 +25,20 @@ explore: quote {
     sql_on: ${quote.policy_provider_category} = ${policy_provider_category_facts.policy_provider_category} ;;
     relationship: many_to_one
   }
+  join: shopify_store_product_variants {
+    type: full_outer
+    sql_on: ${quote.store_name} = ${shopify_store_product_variants.store_name} ;;
+    relationship: many_to_one
+  }
+
 }
 
 explore: shopify_store_product_variants {}
 
 explore: product_tagging_shopifystoreproductvariants {}
+
+explore: us_product_tagging_shopifystoreproductvariants {}
+explore: ca_product_tagging_shopifystoreproductvariants {}
 
 explore: product__agging_shopifystoreproductvariants_ca {}
 
