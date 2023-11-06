@@ -170,9 +170,28 @@ view: quote {
   #  filters: [created_date: "Yesterday"]
   #}
 
+  measure: Quote_fetched_Yesterday {
+    type: count
+    filters: {
+      field: created_date
+      value: "yesterday"
+    }
+  }
+
+
+  measure: Quote_fetched_lastmonth {
+    type: count
+    filters: {
+      field: created_date
+      value: "last month"
+    }
+
+  }
+  }
+
   #measure: Quote_fetched_lastmonth {
   #  type: count
   #  sql: ${count} ;;
   #  filters: [created_date: "last month"]
   #}
-}
+#}
