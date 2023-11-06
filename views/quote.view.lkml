@@ -18,6 +18,12 @@ view: quote {
     datatype: datetime
     sql: ${TABLE}.createdAt ;;
   }
+
+  dimension: week_date {
+    type: date
+    sql: ${created_week} ;;
+  }
+
   dimension: is_yesterday {
     hidden: yes
     type: yesno
