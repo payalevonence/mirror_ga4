@@ -123,7 +123,7 @@ view: quote {
   }
   measure: count {
     type: count
-    drill_fields: [quote_id, store_name, visit.visit_id]
+    drill_fields: [quote_id, store_name]
   }
   measure: count_where_policy_price_is_null {
     type: count
@@ -170,6 +170,11 @@ view: quote {
     sql: ${quote_item3_upper_price} ;;
   }
 
+
+
+
+
+
   #measure: Quote_fetched_Yesterday {
   #  type: count
   #  sql: ${count} ;;
@@ -193,11 +198,39 @@ view: quote {
     }
 
   }
+
+measure: display_count_lastmonth {
+  type: count
+  drill_fields: [created_date]
+  filters: [created_date: "31 days", quote_item1_policy_price: "-NULL"]
+}
+
+  measure: display_count_lastday {
+    type: count
+    drill_fields: [created_date]
+    filters: [created_date: "yesterday", quote_item1_policy_price: "-NULL"]
   }
 
-  #measure: Quote_fetched_lastmonth {
-  #  type: count
-  #  sql: ${count} ;;
-  #  filters: [created_date: "last month"]
-  #}
-#}
+  measure: fetched_count_lastmonth {
+    type: count
+    drill_fields: [created_date]
+    filters: [created_date: "31 days"]
+  }
+
+  measure: fetched_count_lastday {
+    type: count
+    drill_fields: [created_date]
+    filters: [created_date: "yesterday"]
+  }
+
+  measure: df_lastmonth_percentage {
+    type: number
+    sql: ${display_count_lastmonth} / ${fetched_count_lastmonth} ;;
+    value_format: "0.00\%"
+  }
+
+
+
+
+
+  }
