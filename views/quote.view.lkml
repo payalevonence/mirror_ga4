@@ -229,7 +229,11 @@ measure: display_count_lastmonth {
     value_format: "0.00\%"
   }
 
-
+  measure: df_lastday_percentage {
+    type: number
+    sql: ${display_count_lastday} / ${fetched_count_lastday};;
+    value_format: "0.00\%"
+  }
 
 
 
