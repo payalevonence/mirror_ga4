@@ -49,3 +49,13 @@ explore: analysis_mulberry {}
 explore: analysis_extend {}
 
 explore: analysis_cps {}
+
+explore: products_new {
+  join: store_new {
+    type: left_outer
+    sql_on: ${products_new.sb_store_id} = ${store_new.sb_store_id};;
+    relationship: many_to_one
+  }
+}
+
+explore: store_new {}
