@@ -54,8 +54,16 @@ explore: products_new {
   join: store_new {
     type: left_outer
     sql_on: ${products_new.sb_store_id} = ${store_new.sb_store_id};;
-    relationship: many_to_one
+    relationship: one_to_one
+  }
+
+  join: variants {
+    type: left_outer
+    sql_on: ${products_new.sb_product_id} = ${variants.product_id};;
+    relationship: one_to_one
   }
 }
 
 explore: store_new {}
+
+explore: variants {}
