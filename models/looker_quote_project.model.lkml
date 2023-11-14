@@ -26,18 +26,39 @@ explore: quote {
     relationship: many_to_one
   }
   join: shopify_store_product_variants {
-    type: full_outer
+    type: inner
     sql_on: ${quote.store_name} = ${shopify_store_product_variants.store_name} ;;
-    relationship: many_to_one
+    relationship: one_to_one
   }
 
 }
 
-explore: shopify_store_product_variants {}
+explore: shopify_store_product_variants {
+  join: quote {
+    type: inner
+    sql_on: ${quote.store_name} = ${shopify_store_product_variants.store_name} ;;
+    relationship: one_to_one
+
+  }
+}
 
 explore: product_tagging_shopifystoreproductvariants {}
 
-explore: us_product_tagging_shopifystoreproductvariants {}
+explore: us_product_tagging_shopifystoreproductvariants {
+  join: ca_product_tagging_shopifystoreproductvariants {
+    type: inner
+    sql_on: ${ca_product_tagging_shopifystoreproductvariants.store_name} = ${us_product_tagging_shopifystoreproductvariants.store_name} ;;
+    relationship: one_to_one
+  }
+
+  join: shopify_store_product_variants {
+    type: inner
+    sql_on: ${shopify_store_product_variants.store_name} = ${us_product_tagging_shopifystoreproductvariants.store_name} ;;
+    relationship: one_to_one
+  }
+}
+
+
 explore: ca_product_tagging_shopifystoreproductvariants {}
 
 explore: product__agging_shopifystoreproductvariants_ca {}

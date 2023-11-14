@@ -34,11 +34,11 @@ view: variants {
     sql: ${TABLE}.option3 ;;
   }
   dimension: price {
-    type: number
+    type: string
     sql: ${TABLE}.price ;;
   }
   dimension: product_id {
-    type: string
+    type: number
     sql: ${TABLE}.product_id ;;
   }
   dimension: requires_shipping {
