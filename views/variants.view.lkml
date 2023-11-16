@@ -33,10 +33,15 @@ view: variants {
     type: string
     sql: ${TABLE}.option3 ;;
   }
-  dimension: price {
-    type: string
+  dimension: price{
+    type: number
     sql: ${TABLE}.price ;;
   }
+  dimension: price1 {
+    type: string
+    sql: cast( ${price} as string)  ;;
+  }
+
   dimension: product_id {
     type: number
     sql: ${TABLE}.product_id ;;
