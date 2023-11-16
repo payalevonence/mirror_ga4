@@ -80,7 +80,7 @@ explore: products_new {
 
   join: variants {
     type: left_outer
-    sql_on: ${products_new.sb_product_id} = ${variants.product_id};;
+    sql_on: ${products_new.sb_product_id} = ${variants.sb_product_id};;
     relationship: one_to_one
   }
 }
