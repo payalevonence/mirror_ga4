@@ -88,3 +88,13 @@ explore: products_new {
 explore: store_new {}
 
 explore: variants {}
+
+explore: products {
+  join: store {
+    type: inner
+    sql_on: ${products.sb_store_id} = ${store.sb_store_id} ;;
+    relationship: one_to_one
+  }
+}
+
+explore: store {}
