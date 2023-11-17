@@ -98,3 +98,5 @@ explore: products {
 }
 
 explore: store {}
+
+explore: mulberry_analysis1 {}
