@@ -99,4 +99,10 @@ explore: products {
 
 explore: store {}
 
+explore:extend_analysis1 {}
+
 explore: mulberry_analysis1 {}
+
+explore:clyde_analysis1 {}
+
+explore: cps_analysis1 {}
