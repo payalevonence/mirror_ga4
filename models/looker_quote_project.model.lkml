@@ -63,13 +63,7 @@ explore: ca_product_tagging_shopifystoreproductvariants {}
 
 explore: product__agging_shopifystoreproductvariants_ca {}
 
-explore: analysis_clyde {}
 
-explore: analysis_mulberry {}
-
-explore: analysis_extend {}
-
-explore: analysis_cps {}
 
 explore: products_new {
   join: store_new {
